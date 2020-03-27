@@ -27,6 +27,6 @@ public class Android extends Human implements Chargeable {
     public int charge(int amount) {
         int chargeLevel = getLevel() + amount;
         setLevel(chargeLevel);
-        return 0;
+        return level;
     }
 }
