@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BankAccountTest {
+public class BankAccountInnerTest {
 
     private Bank ING;
     private BankAccount ac1;
