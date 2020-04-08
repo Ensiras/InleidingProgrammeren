@@ -1,4 +1,4 @@
-package noelVaes.h7;
+package noelVaes.h7Arrays;
 
 public class TwoDimensionalArray {
     public static void main(String[] args) {

@@ -1,13 +1,12 @@
 package h9.bank;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Bank {
 
     String name;
-    private List<BankAccount> BankAccounts = new ArrayList<BankAccount>();
+    private List<BankAccount> BankAccounts = new ArrayList<>();
 
     public Bank(String name) {
         this.name = name;

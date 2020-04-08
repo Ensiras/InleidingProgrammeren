@@ -1,4 +1,4 @@
-package noelVaes.h8;
+package noelVaes.h8Classes;
 
 public class Rectangle {
     private int x;

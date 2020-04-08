@@ -1,7 +1,7 @@
-package noelVaes.h8;
+package noelVaes.h8Classes;
 
-import static noelVaes.h8.Rectangle.ANGLES;
-import static noelVaes.h8.Rectangle.getCount;
+import static noelVaes.h8Classes.Rectangle.ANGLES;
+import static noelVaes.h8Classes.Rectangle.getCount;
 
 public class RectangleApp {
     public static void main(String[] args) {

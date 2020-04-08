@@ -1,4 +1,4 @@
-package noelVaes.h15;
+package noelVaes.h15Exceptions;
 
 import java.util.Scanner;
 
