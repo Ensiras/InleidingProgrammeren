@@ -30,7 +30,6 @@ public class MyCollection<E> implements Collection<E> {
     @Override
     public boolean contains(Object o) {
         for (Object object : collection) {
-            // TODO remove workaround once remove() fixed
             if (object == null) {
                 return false;
             }
@@ -110,16 +109,15 @@ public class MyCollection<E> implements Collection<E> {
         return true;
     }
 
-    //TODO Make it so empty elements get filled, otherwise contains() will break
     @Override
     public boolean remove(Object o) {
         for (int i = 0; i < collection.length; i++) {
-            // TODO Remove once fixed empty elements problem
-            if (collection[i] == null) {
-                continue;
-            }
+
             if (collection[i].equals(o)) {
                 collection[i] = null;
+                for (int m = i; m < size() - 1; m++) {
+                    collection[m] = collection[m + 1];
+                }
                 return true;
             }
         }
@@ -159,7 +157,6 @@ public class MyCollection<E> implements Collection<E> {
     @Override
     public boolean retainAll(Collection<?> c) {
 
-
         // First check if any elements will be retained
         for (int i = 0; i <= size; i++) {
             if (i == size) {
@@ -188,9 +185,10 @@ public class MyCollection<E> implements Collection<E> {
 
     @Override
     public void clear() {
-        for (Object o : collection) {
-            remove(o);
-        }
+        for (int i = 0; i < size(); i++)
+            if (collection[0] != null) {
+                remove(collection[0]);
+            }
     }
 
     private Object[] saveOld() {
