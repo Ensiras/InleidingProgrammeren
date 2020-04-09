@@ -98,6 +98,10 @@ public class MyCollection<E> implements Collection<E> {
     }
 
     public boolean add(E input) {
+        // adding null values prohibited, otherwise breaks remove methods
+        if (input == null) {
+            return false;
+        }
         if (index >= collection.length) {
             System.out.println("Array is full, extending array.");
             Object[] tempArr = saveOld();
@@ -112,12 +116,17 @@ public class MyCollection<E> implements Collection<E> {
     @Override
     public boolean remove(Object o) {
         for (int i = 0; i < collection.length; i++) {
-
-            if (collection[i].equals(o)) {
+            if (collection[i] == null) {
+                    size--;
+                    return false;
+            } else if (collection[i].equals(o)) {
                 collection[i] = null;
+
+                // Shift remaining elements, can also be replaced by arrayCopy
                 for (int m = i; m < size() - 1; m++) {
                     collection[m] = collection[m + 1];
                 }
+                size--;
                 return true;
             }
         }
@@ -157,10 +166,11 @@ public class MyCollection<E> implements Collection<E> {
     @Override
     public boolean retainAll(Collection<?> c) {
 
-        // First check if any elements will be retained
+        // First check if any elements will be retained, if not clear array.
         for (int i = 0; i <= size; i++) {
             if (i == size) {
-                return false;
+                clear();
+                return true;
             }
             if (c.contains(collection[i])) {
                 break;
@@ -185,10 +195,9 @@ public class MyCollection<E> implements Collection<E> {
 
     @Override
     public void clear() {
-        for (int i = 0; i < size(); i++)
-            if (collection[0] != null) {
-                remove(collection[0]);
-            }
+        final int CURRENT_SIZE = size();
+        for (int i = 0; i < CURRENT_SIZE; i++)
+            remove(collection[0]);
     }
 
     private Object[] saveOld() {

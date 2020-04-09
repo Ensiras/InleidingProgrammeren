@@ -55,7 +55,7 @@ public class App {
         }
 
         // Retain only elements contained in another collection
-        // TODO more tests: what if collection is smaller, very large, same size, contains different types, doubles, etc.
+        // TODO more tests: what if collection is smaller, very large, same size, contains different types, has nothing in common, etc.
         stringMyColl.retainAll(stringList);
         System.out.println("After retainAll: ");
         for (String s : stringMyColl) {
@@ -68,6 +68,8 @@ public class App {
         // Clearing entire collection
         stringMyColl.clear();
 
+        ArrayList<Integer> ints = new ArrayList<>();
+        ints.add(null);
 
     }
 }
